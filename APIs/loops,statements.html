@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops, Conditions and Switches</title>
+</head>
+<body>
+    <div id="people"></div>
+    <script>
+        var people = [
+            {
+                name: 'Takesure',
+                age:23
+            },
+
+            {
+                name: 'Ropafadzo',
+                age :19
+            }
+        ];
+
+
+        // for(let i = 0; i < people.length; i++){
+        //     document.getElementById('people').innerHTML += '<li>'+people[i].name+'</li>';
+        // }
+
+        let  name = 'ropa';
+        switch (name) {
+            case 'Take':
+                console.log('My name is Take');
+                break;
+                case 'Dasha':
+                console.log('My name is Dasha');
+                break;
+            default:
+                console.log('My name is '+name);
+                break;
+        }
+    </script>
+</body>
+</html>

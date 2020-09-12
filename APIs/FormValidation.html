@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Form Validation</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Tiripamwepo.Com</h1>
+        <div class="alert" id="msg"></div>
+        <form id="myForm">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Name" name="name" >
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" id="email" placeholder="Email" name="email" >
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password" >
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" class="form-control" id="password2" placeholder="Password" name="password2" >
+            </div>
+          
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', register, false);
+
+        function register(e){
+            e.preventDefault();
+
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+            let password2 = document.getElementById('password2').value;
+
+            let msg = document.getElementById('msg');
+            
+
+            if (name == '' || email == '' || password == '' || password2 == '') {
+                msg.className = 'alert alert-danger';
+                msg.innerHTML = 'Please fill out all the fields';
+                
+            }else{
+                if (name.length < 3) {
+                    msg.className = 'alert alert-danger';
+                    msg.innerHTML = 'Name must be at least 3 characters'
+                }else{
+                    let atpos = email.indexOf('@');
+                    let dotpos = email.lastIndexOf('.');
+                    if (atpos < 1 || dotpos < atpos+2 || dotpos+2 >= email.length ) {
+                        msg.className = 'alert alert-danger';
+                        msg.innerHTML = 'Please use valid email'
+                    }else{
+                        if (password != password2) {
+                            msg.className = 'alert alert-danger';
+                            msg.innerHTML = 'Passwords do not match'
+                        }else{
+                            msg.className = 'alert alert-success ';
+                            msg.innerHTML = '<h3>'+name+' Welcome!'+'</h3>';
+                        }
+                    }
+                }
+            }
+        }
+
+        register();
+    </script>    
+</body>
+</html>

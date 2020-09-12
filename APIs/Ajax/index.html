@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Ajax</title>
+</head>
+<body>
+    <h1 id="mainText">Change this text.</h1>
+    <button onclick="changeText()">Change</button>
+
+    <script>
+        function changeText(){
+            let xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function(){
+                if (xhttp.readyState == 4 && xhttp.status == 200) {
+                   document.getElementById('mainText').innerHTML = xhttp.responseText;
+                }
+            }
+            xhttp.open('GET', 'file.txt', true);
+            xhttp.send();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function & Events</title>
+</head>
+<body>
+
+    
+
+    <form action="" id="myForm">
+
+        <div>
+            <label for="">Name</label>
+            <input type="text"  id="name">
+        </div>
+        <div>
+            <label for="">Email</label>
+            <input type="email"  id="email">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        // function getDate(){
+        //     let today = new Date();
+        //     document.getElementById('showDate').innerHTML +=  '<h1>'+today+'</h1>';
+        // }
+
+        // getDate();
+
+        document.getElementById('myForm').addEventListener('submit', submitForm, false);
+
+        function submitForm(e){
+            e.preventDefault();
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+
+            console.log(name);
+        }
+    </script>
+</body>
+</html>
